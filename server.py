@@ -24,7 +24,7 @@ class ScanStatusType(Enum):
     DONE = 3
 
 def ScanNew(db, data, str_v):
-    subprocess.run(["/usr/bin/python3","/home/kaancaglan/dev/ZTP/ztp-client/main.py","--start-scan", data["data"]])
+    subprocess.run(["/usr/bin/python3","/home/kaancaglan/dev/ZTP/ztp-client/client.py","--start-scan", data["data"]])
     cursor = list(db["scan"].find().sort([('creation_date', -1)]).limit(1))[0]
     return cursor["_id"]
 
